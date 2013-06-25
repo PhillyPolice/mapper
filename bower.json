@@ -1,15 +1,16 @@
 {
-	"name": "phl-crime-mapper",
-	"version": "2.0.0",
-	"dependencies": {
-		"jquery": "1.10.1",
-		"backbone": "1.0.0",
-		"underscore": "1.4.4",
-		"requirejs": "2.1.6",
-		"requirejs-text": "2.0.7"
-	},
-	"devDependencies": {
-		"mocha": "latest",
-		"chai": "latest"
-	}
+  "name": "phl-crime-mapper",
+  "version": "2.0.0",
+  "dependencies": {
+    "jquery": "1.10.1",
+    "backbone": "1.0.0",
+    "underscore": "1.4.4",
+    "requirejs": "2.1.6",
+    "requirejs-text": "2.0.7",
+    "leaflet": "~0.5.1"
+  },
+  "devDependencies": {
+    "mocha": "latest",
+    "chai": "latest"
+  }
 }

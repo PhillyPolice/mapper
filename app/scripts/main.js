@@ -8,7 +8,8 @@
 			'jquery': 'vendor/jquery/jquery',
 			'underscore': 'vendor/underscore/underscore',
 			'backbone': 'vendor/backbone/backbone',
-			'text': 'vendor/requirejs-text/text'
+			'text': 'vendor/requirejs-text/text',
+			'leaflet': 'vendor/leaflet/dist/leaflet-src'
 		},
 		shim: {
 			underscore: {
@@ -17,6 +18,9 @@
 			backbone: {
 				exports: 'Backbone',
 				deps: ['jquery', 'underscore']
+			},
+			leaflet: {
+				exports: 'L'
 			}
 		}
 	});
