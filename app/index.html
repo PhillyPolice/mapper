@@ -13,6 +13,7 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.0/pure-min.css">
     <link rel="stylesheet" href="scripts/vendor/leaflet.draw/dist/leaflet.draw.css">
+    <link rel="stylesheet" href="scripts/vendor/Zebra_Datepicker/public/css/metallic.css">
     <link rel="stylesheet" href="styles/main.css">
 </head>
 
@@ -29,9 +30,12 @@
 		<div id="map"></div>
 	<div id="right-pane">
 		<h1><strong>PHL CRIME MAPPER</strong></h1>
-		<h3>{{app description}}<br /></h3>
-		{{date slider here}}<br />
+		<h3>I want to see all Part I crimes from:<br /></h3>
+		<input type="text" class="datepicker_start"><br />
+		<h3>to:</h3><br />
+		<input type="text" class="datepicker_end"><br />
 		{{animated gif example of polygon drawing}}
+
 	</div>
 	</div>
 

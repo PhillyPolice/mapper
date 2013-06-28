@@ -8,7 +8,8 @@
     "requirejs": "2.1.6",
     "requirejs-text": "2.0.7",
     "leaflet": "~0.6.x",
-    "leaflet.draw": "~0.2.0"
+    "leaflet.draw": "~0.2.0",
+    "Zebra_Datepicker": "git://github.com/stefangabos/Zebra_Datepicker#~1.8.0"
   },
   "devDependencies": {
     "mocha": "latest",

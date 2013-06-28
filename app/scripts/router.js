@@ -2,15 +2,18 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'views/home'
-	], function ($, _, Backbone, HomeView) {
+	'views/home',
+	'models/user-input'
+	], function ($, _, Backbone, HomeView, UserInput) {
 		var AppRouter = Backbone.Router.extend({
 			routes: {
 				'': 'home'
 			},
 
 			home: function () {
-				var homeView = new HomeView();
+				var userInput = new UserInput();
+
+				var homeView = new HomeView({model: userInput});
 				homeView.render();
 			}
 		});

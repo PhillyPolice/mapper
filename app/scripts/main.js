@@ -10,7 +10,8 @@
 			'backbone': 'vendor/backbone/backbone',
 			'text': 'vendor/requirejs-text/text',
 			'leaflet': 'vendor/leaflet/dist/leaflet-src',
-			'draw': 'vendor/leaflet.draw/dist/leaflet.draw'
+			'draw': 'vendor/leaflet.draw/dist/leaflet.draw-src',
+			'zebra': 'vendor/Zebra_Datepicker/public/javascript/zebra_datepicker.src'
 		},
 		shim: {
 			underscore: {
@@ -20,7 +21,8 @@
 				exports: 'Backbone',
 				deps: ['jquery', 'underscore']
 			},
-			draw: ['leaflet']	
+			draw: ['leaflet'],
+			zebra: ['jquery']
 		}
 	});
 

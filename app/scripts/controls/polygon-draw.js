@@ -14,7 +14,7 @@ define([
 				marker: false,
 				polygon: {
 					shapeOptions: {
-						color: '#bada55'
+						color: '#FFBC00'
 					}
 				}
 			},
