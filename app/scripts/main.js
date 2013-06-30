@@ -9,7 +9,8 @@
 			'underscore': 'vendor/underscore/underscore',
 			'backbone': 'vendor/backbone/backbone',
 			'text': 'vendor/requirejs-text/text',
-			'leaflet': 'vendor/leaflet/dist/leaflet-src'
+			'leaflet': 'vendor/leaflet/dist/leaflet-src',
+			'draw': 'vendor/leaflet.draw/dist/leaflet.draw'
 		},
 		shim: {
 			underscore: {
@@ -19,14 +20,13 @@
 				exports: 'Backbone',
 				deps: ['jquery', 'underscore']
 			},
-			leaflet: {
-				exports: 'L'
-			}
+			draw: ['leaflet']	
 		}
 	});
 
 	// Starting the application
 	require(['app'], function (app) {
+		// Deal with different devices here?
 		app.init();
 	});
 }());

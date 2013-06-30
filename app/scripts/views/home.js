@@ -4,8 +4,9 @@ define([
 	'backbone',
 	'text!templates/home.html',
 	'text!templates/attribution.html',
-	'leaflet'
-	], function ($, _, Backbone, HomeTemplate, AttributionTemplate, L) {
+	'leaflet',
+	'controls/polygon-draw'
+	], function ($, _, Backbone, HomeTemplate, AttributionTemplate, L, DrawControl) {
 		var HomeView = Backbone.View.extend({
 
 			el: $('body'),
@@ -41,6 +42,10 @@ define([
 
 				mapAttribution.addAttribution(AttributionTemplate);
 				map.addControl(mapAttribution);
+
+				var drawControl = DrawControl;
+
+				map.addControl(drawControl);
 
 				this.render();
 
