@@ -1,4 +1,12 @@
 /* line 1, main.scss */
-h1 {
-  font-family: "Helvetica Neue";
+html, body, #map {
+  height: 100%;
+  background-color: black;
+  color: white;
+}
+
+/* line 7, main.scss */
+body {
+  padding: 0;
+  margin: 0;
 }

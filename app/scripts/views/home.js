@@ -2,16 +2,53 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'text!templates/home.html' // Pull in the HTML template
-	], function ($, _, Backbone, HomeTemplate) {
+	'text!templates/home.html',
+	'text!templates/attribution.html',
+	'leaflet'
+	], function ($, _, Backbone, HomeTemplate, AttributionTemplate, L) {
 		var HomeView = Backbone.View.extend({
-			el: $('#container'),
+
+			el: $('body'),
+
+			initialize: function () {
+
+				var map = L.map('map', {
+					center: new L.LatLng(39.952335, -75.163789),
+					zoom: 13,
+					attributionControl: false,
+					touchZoom: true,
+					dragging: true
+				});
+
+				var tonerUrl = "http://{S}tile.stamen.com/toner/{Z}/{X}/{Y}.png";
+
+				var url = tonerUrl.replace(/({[A-Z]})/g, function(s) {
+                    return s.toLowerCase();
+                });
+
+				var basemap = new L.tileLayer(url, {
+					subdomains: ['','a.','b.','c.','d.'],
+					minZoom: 0,
+					maxZoom: 20,
+					type: 'png'
+				});
+				basemap.addTo(map);
+
+				var mapAttribution = new L.Control.Attribution({
+					prefix: false,
+					position: 'bottomright'
+				});
+
+				mapAttribution.addAttribution(AttributionTemplate);
+				map.addControl(mapAttribution);
+
+				this.render();
+
+			},
+
 			render: function () {
-				var data = {adj: 'awesome'}; // Test data
 
-				var template = _.template(HomeTemplate, data);
-
-				this.$el.append(template);
+				return this;
 			}
 		});
 
