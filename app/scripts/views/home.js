@@ -85,6 +85,10 @@ define([
 
 				});
 
+				Crimes.on('doneParsing', function(evt) {
+					// Deal with the new crimes here
+				});
+
 				// Update userInput model when dates changed
 				channel.on('startDate', function (date) {
 					self.model.set('startDate', date);

@@ -3,14 +3,15 @@ define([
 	'underscore',
 	'backbone',
 	'leaflet',
-	'../models/user-input'
-	], function ($, _, Backbone, L, UserInput) {
+	'../models/user-input',
+	'../models/crime'
+	], function ($, _, Backbone, L, UserInput, Crime) {
 
 		var Crimes = Backbone.Collection.extend({
 
 			url: 'http://gis.phila.gov/ArcGIS/rest/services/PhilaGov/Police_Incidents/MapServer/0/query',
 
-			//model: app.Models.Crime,
+			model: Crime,
 
 			fetch: function() {
 				var options = {};
