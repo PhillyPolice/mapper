@@ -7,13 +7,32 @@
 
 	<title>PHL Crime Mapper</title>
 
-	<link rel="stylesheet" href="styles/main.css">
+
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.ie.css" /><![endif]-->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.0/pure-min.css">
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body>
-	<div id="map"></div>
+	<div id="container">
+		<div class="pure-menu pure-menu-open pure-menu-horizontal" id="nav-bar">
+			<li><strong>PHL CRIME MAPPER</strong></li>
+			<li><a href="http://phlcrimemapper.tumblr.com">Blog</a></li>
+			<li><a href="#">Help</a></li>
+			<li><a href="https://github.com/davewalk/phl-crime-mapper">Code</a></li>	
+			<li><a href="#">About</a></li>
+		</div>
+	
+		<div id="map"></div>
+	<div id="right-pane">
+		<h1><strong>PHL CRIME MAPPER</strong></h1>
+		<h3>{{app description}}<br /></h3>
+		{{date slider here}}<br />
+		{{animated gif example of polygon drawing}}
+	</div>
+	</div>
 
 <script data-main="scripts/main" src="scripts/vendor/requirejs/require.js"></script>
 </body>

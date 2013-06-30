@@ -20,7 +20,7 @@ define([
 					dragging: true
 				});
 
-				var tonerUrl = "http://{S}tile.stamen.com/toner/{Z}/{X}/{Y}.png";
+				var tonerUrl = 'http://{S}tile.stamen.com/toner/{Z}/{X}/{Y}.png';
 
 				var url = tonerUrl.replace(/({[A-Z]})/g, function(s) {
                     return s.toLowerCase();

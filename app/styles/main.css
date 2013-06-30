@@ -1,12 +1,54 @@
 /* line 1, main.scss */
-html, body, #map {
+html, body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
   height: 100%;
   background-color: black;
   color: white;
+  font-family: "Open Sans Condensed", sans-serif;
 }
 
-/* line 7, main.scss */
-body {
-  padding: 0;
-  margin: 0;
+/* line 13, main.scss */
+#map {
+  position: absolute;
+  left: 0;
+  top: 46px;
+  right: 280px;
+  bottom: 0;
+}
+
+/* line 21, main.scss */
+#nav-bar {
+  background-color: black;
+  background: black;
+  z-index: 100;
+  height: 46px;
+  display: block;
+  padding-left: 20px;
+}
+/* line 28, main.scss */
+#nav-bar li {
+  list-style: none;
+  padding: 5px;
+}
+/* line 31, main.scss */
+#nav-bar li a {
+  color: white;
+}
+/* line 33, main.scss */
+#nav-bar li a:hover {
+  color: black;
+}
+
+/* line 40, main.scss */
+#right-pane {
+  position: fixed;
+  top: 46px;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  background-color: black;
+  padding: 10px;
 }
