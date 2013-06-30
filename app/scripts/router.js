@@ -4,17 +4,19 @@ define([
 	'backbone',
 	'views/home',
 	'models/user-input'
-	], function ($, _, Backbone, HomeView, UserInput) {
+	//'collections/crimes'
+	], function ($, _, Backbone, HomeView, UserInput, Crimes) {
 		var AppRouter = Backbone.Router.extend({
 			routes: {
 				'': 'home'
 			},
 
 			home: function () {
-				var userInput = new UserInput();
 
-				var homeView = new HomeView({model: userInput});
+				var homeView = new HomeView({model: UserInput});
 				homeView.render();
+
+				//crimes = new Crimes();
 			}
 		});
 

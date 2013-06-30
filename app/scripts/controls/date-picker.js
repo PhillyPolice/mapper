@@ -1,8 +1,9 @@
 define([
 	'jquery',
 	'../channel',
+	'models/user-input',
 	'zebra'	
-	], function ($, channel) {
+	], function ($, channel, UserInput) {
 
 		var formatDate = function(d) {
 			var year = d.getFullYear();
@@ -29,10 +30,16 @@ define([
 			start_date: firstOfMonth
 		});
 
+		datePickerStart[0].value = firstOfMonth;
+		UserInput.set('startDate', datePickerStart[0].value);
+
 		var datePickerEnd = $('input.datepicker_end').Zebra_DatePicker({
 			direction: ['2006-01-01', lastDay],
 			start_date: firstOfMonth
 		});
+
+		datePickerEnd[0].value = lastDay;
+		UserInput.set('endDate', datePickerEnd[0].value);
 
 		$('input.datepicker_start').Zebra_DatePicker({
 			onSelect: function(format, dateStr, dateObj, element) {

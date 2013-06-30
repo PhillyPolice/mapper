@@ -8,8 +8,9 @@ define([
 	'models/user-input',
 	'controls/polygon-draw',
 	'controls/date-picker',
-	'../channel'
-	], function ($, _, Backbone, HomeTemplate, AttributionTemplate, L, UserInput, DrawControl, DatePicker, channel) {
+	'../channel',
+	'../collections/crimes'
+	], function ($, _, Backbone, HomeTemplate, AttributionTemplate, L, UserInput, DrawControl, DatePicker, channel, Crimes) {
 		var HomeView = Backbone.View.extend({
 
 			el: $('body'),
@@ -75,6 +76,8 @@ define([
 
 					self.model.set('geometry', queryGeometry);
 
+					Crimes.fetch();
+
 					drawnItems.clearLayers();
 					map.addLayer(drawnItems);
 					drawnItems.addLayer(evt.layer);
@@ -85,10 +88,12 @@ define([
 				// Update userInput model when dates changed
 				channel.on('startDate', function (date) {
 					self.model.set('startDate', date);
+					Crimes.fetch();
 				});
 
 				channel.on('endDate', function (date) {
 					self.model.set('endDate', date);
+					Crimes.fetch();
 				});
 
 				this.render();

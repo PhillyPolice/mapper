@@ -7,10 +7,14 @@ define([
 		var UserInput = Backbone.Model.extend({
 			defaults: {
 				geometry : '',
+				startDate: '',
+				endDate: '',
 				firstDraw: true // Need this anymore?
 			}
 		});
 
-		return UserInput;
+		var userInput = new UserInput();
+
+		return userInput;
 	}
 );
