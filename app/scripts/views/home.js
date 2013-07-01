@@ -22,7 +22,8 @@ define([
 					zoom: 13,
 					attributionControl: false,
 					touchZoom: true,
-					dragging: true
+					dragging: true,
+					maxBounds: new L.LatLngBounds([39.849719,-75.308533], [40.123346,-74.904785])
 				});
 
 				var tonerUrl = 'http://{S}tile.stamen.com/toner/{Z}/{X}/{Y}.png';
