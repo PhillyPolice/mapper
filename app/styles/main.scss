@@ -13,7 +13,7 @@ html, body {
 #map {
 	position: absolute;
 	left: 0;
-	top: 46px;
+	top: 36px;
 	right: 280px;
 	bottom: 0
 }
@@ -22,12 +22,13 @@ html, body {
 	background-color: black;
 	background: black;
 	z-index: 100;
-	height: 46px;
+	height: 36px;
 	display: block;
 	padding-left: 20px;
 	li {
 		list-style: none;
-		padding: 5px;
+		vertical-align: text-top;
+		/*padding: 5px;*/
 		a {
 			color: white;
 			&:hover {

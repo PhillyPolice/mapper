@@ -3,3 +3,6 @@ node_modules
 aws.json
 app/scripts/vendor
 .sass-cache
+app/styles/font/font-awesome/demo.html
+app/styles/font/font-awesome/README.txt
+app/styles/font/font-awesome/config.json

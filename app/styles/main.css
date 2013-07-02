@@ -7,14 +7,14 @@ html, body {
   height: 100%;
   background-color: black;
   color: white;
-  font-family: "Open Sans Condensed", sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 /* line 13, main.scss */
 #map {
   position: absolute;
   left: 0;
-  top: 46px;
+  top: 36px;
   right: 280px;
   bottom: 0;
 }
@@ -24,25 +24,26 @@ html, body {
   background-color: black;
   background: black;
   z-index: 100;
-  height: 46px;
+  height: 36px;
   display: block;
   padding-left: 20px;
 }
 /* line 28, main.scss */
 #nav-bar li {
   list-style: none;
-  padding: 5px;
+  vertical-align: text-top;
+  /*padding: 5px;*/
 }
-/* line 31, main.scss */
+/* line 32, main.scss */
 #nav-bar li a {
   color: white;
 }
-/* line 33, main.scss */
+/* line 34, main.scss */
 #nav-bar li a:hover {
   color: black;
 }
 
-/* line 40, main.scss */
+/* line 41, main.scss */
 #right-pane {
   position: fixed;
   top: 46px;
