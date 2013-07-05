@@ -20,7 +20,10 @@ requirejs.config({
 
 require(['chai'], function (chai) {
 
-	require(['../test/test-boilerplate'], function () {
+	require([
+		'../test/test-models',
+		'../test/test-collections'
+		], function () {
 		// Start runner!
 		mocha.run();
 	});
