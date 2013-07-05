@@ -21,7 +21,7 @@ define([
 					geometry : this.geometry,
 					geometryType : 'esriGeometryPolygon',
 					spatialRel : 'esriSpatialRelContains',
-					outFields : 'DISPATCH_DATE,DISPATCH_TIME,TEXT_GENERAL_CODE,HOUR,POINT_X,POINT_Y,UCR_GENERAL,LOCATION_BLOCK',
+					outFields : 'DISPATCH_DATE,DISPATCH_TIME,TEXT_GENERAL_CODE,HOUR,POINT_X,POINT_Y,UCR_GENERAL,LOCATION_BLOCK,DC_KEY',
 					inSr : 4326,
 					outSR : 4326,
 					f : 'pjson'

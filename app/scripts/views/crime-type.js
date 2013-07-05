@@ -19,6 +19,7 @@ define([
 				this.model.on('show', this.addLayer);
 				this.model.crimes.on('reset', this.render);
 				channel.on('newCrimes', this.updateCrimes);
+        channel.on('results:rerender', this.render);
 			},
 
 			render: function () {
@@ -35,6 +36,10 @@ define([
 				var crime = new Crime({model: model});
 				var marker = crime.returnMarker();
 				marker.addTo(this.layer);
+        model.marker = marker;
+        marker.on('click', function () {
+          channel.trigger('model:select', model);
+        });
 			},
 
 			removeLayer: function () {
