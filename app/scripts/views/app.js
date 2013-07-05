@@ -108,7 +108,7 @@ define([
 					self.drawnPolygon.addLayer(evt.layer);
 					map.fitBounds(self.drawnPolygon.getBounds());
 
-				});        
+				});
 
 				this.render();
 

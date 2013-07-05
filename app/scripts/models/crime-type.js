@@ -32,6 +32,7 @@ define([
 				var code = this.get('code');
 				code = code.toString();
 				var models = crimes.where({UCR_GENERAL: code});
+        this.set('count', models.length);
 				this.crimes.reset(models);
 			}
 		});

@@ -4,9 +4,13 @@ define([
 	'backbone',
 	'leaflet',
 	'../views/crime',
-	'../channel'
-	], function ($, _, Backbone, L, Crime, channel) {
+	'../channel',
+  'text!../templates/crime-type.html'
+	], function ($, _, Backbone, L, Crime, channel, CrimeTypeTemplate) {
 		var CrimeType = Backbone.View.extend({
+
+      el: $('#results'),
+      
 			initialize: function () {
 				this.layer = new L.LayerGroup();
 
@@ -21,6 +25,7 @@ define([
 				this.removeLayer();
 				this.layer.clearLayers();
 				this.model.crimes.each(this.addMarker);
+        $('#results').append(_.template(CrimeTypeTemplate, this.model.toJSON()));
 				if (this.model.get('visibility')) {
 					this.addLayer();
 				}

@@ -65,8 +65,8 @@ define([
         channel.trigger('startDate', datePickerStart[0].value);
         channel.trigger('endDate', datePickerEnd[0].value);
       });
-    }
+    };
 
-    return DatePicker;		
+    return DatePicker;
 	}
 );
