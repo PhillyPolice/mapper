@@ -23,45 +23,50 @@ define([
 		firstOfMonth.setDate(1);
 		firstOfMonth = formatDate(firstOfMonth);
 
-		// TODO: Fix the start and end dates - for some reason isn't working how it should		
-		var datePickerStart = $('input.datepicker_start').Zebra_DatePicker({
-			pair: $('input.datepicker_end'),
-			direction: ['2006-01-01', lastDay],
-			start_date: firstOfMonth
-		});
+    var DatePicker = {};
+    DatePicker.init = function () {
+      // TODO: Fix the start and end dates - for some reason isn't working how it should    
+      var datePickerStart = $('input.datepicker_start').Zebra_DatePicker({
+        pair: $('input.datepicker_end'),
+        direction: ['2006-01-01', lastDay],
+        start_date: firstOfMonth
+      });
 
-		datePickerStart[0].value = firstOfMonth;
+      datePickerStart[0].value = firstOfMonth;
 
-		var datePickerEnd = $('input.datepicker_end').Zebra_DatePicker({
-			direction: ['2006-01-01', lastDay],
-			start_date: firstOfMonth
-		});
+      var datePickerEnd = $('input.datepicker_end').Zebra_DatePicker({
+        direction: ['2006-01-01', lastDay],
+        start_date: firstOfMonth
+      });
 
-		datePickerEnd[0].value = lastDay;
+      datePickerEnd[0].value = lastDay;
 
-		$('input.datepicker_start').Zebra_DatePicker({
-			onSelect: function(format, dateStr, dateObj, element) {
-				var newDate = dateObj;
-				newDate.setDate(dateObj.getDate() + 1);
+      $('input.datepicker_start').Zebra_DatePicker({
+        onSelect: function(format, dateStr, dateObj, element) {
+          var newDate = dateObj;
+          newDate.setDate(dateObj.getDate() + 1);
 
-				var dpEnd = $('input.datepicker_end').data('Zebra_DatePicker');
-				dpEnd.update({
-					direction: [formatDate(newDate), lastDay]
-				});
+          var dpEnd = $('input.datepicker_end').data('Zebra_DatePicker');
+          dpEnd.update({
+            direction: [formatDate(newDate), lastDay]
+          });
 
-				channel.trigger('startDate', dateStr);
-			}
-		});
+          channel.trigger('startDate', dateStr);
+        }
+      });
 
-		$('input.datepicker_end').Zebra_DatePicker({
-			onSelect: function(format, dateStr, dateObj, element) {
-				channel.trigger('endDate', dateStr);
-			}
-		});
+      $('input.datepicker_end').Zebra_DatePicker({
+        onSelect: function(format, dateStr, dateObj, element) {
+          channel.trigger('endDate', dateStr);
+        }
+      });
 
-		channel.on('getDates', function() {
-			channel.trigger('startDate', datePickerStart[0].value);
-			channel.trigger('endDate', datePickerEnd[0].value);
-		});
+      channel.on('getDates', function() {
+        channel.trigger('startDate', datePickerStart[0].value);
+        channel.trigger('endDate', datePickerEnd[0].value);
+      });
+    }
+
+    return DatePicker;		
 	}
 );

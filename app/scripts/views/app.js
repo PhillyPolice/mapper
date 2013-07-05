@@ -6,13 +6,13 @@ define([
 	'collections/crimes',
 	'../channel',
 	'../config',
+  '../views/panel',
 	'models/user-input',
 	'text!templates/attribution.html',
 	'controls/polygon-draw',
-	'controls/date-picker',
 	'../models/crime-type',
 	'../views/crime-type'
-	], function ($, _, Backbone, L, Crimes, channel, config, UserInput, AttributionTemplate, DrawControl, DatePicker, CrimeTypeModel, CrimeTypeView) {
+	], function ($, _, Backbone, L, Crimes, channel, config, Panel, UserInput, AttributionTemplate, DrawControl, CrimeTypeModel, CrimeTypeView) {
 
 		var HomeView = Backbone.View.extend({
 
@@ -21,6 +21,8 @@ define([
 			model: UserInput,
 
 			initialize: function () {
+
+        var panel = new Panel();
 
 				Crimes.once('sync', this.createTypes, this);
 
@@ -37,6 +39,8 @@ define([
 					self.model.set('endDate', date);
 					Crimes.end = date;
 				});
+
+        channel.on('newRegion', this.loadRegion, this);
 
 				this.model.on('change', this.fetchCrimes, this);
 
@@ -104,7 +108,7 @@ define([
 					self.drawnPolygon.addLayer(evt.layer);
 					map.fitBounds(self.drawnPolygon.getBounds());
 
-				});
+				});        
 
 				this.render();
 
@@ -131,7 +135,12 @@ define([
 
 			render: function () {
 				return this;
-			}
+			},
+
+      // Just a test
+      loadRegion: function (id) {
+        console.log('Loading region ' + id + ' for AppView!');
+      }
 		});
 
 		return HomeView;
