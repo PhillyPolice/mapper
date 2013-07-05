@@ -1,20 +1,16 @@
 define([
 	'jquery',
 	'underscore',
-	'backbone',
-	'leaflet'
-	], function ($, _, Backbone, L) {
+	'backbone'
+	], function ($, _, Backbone) {
 		var UserInput = Backbone.Model.extend({
 			defaults: {
 				geometry : '',
 				startDate: '',
-				endDate: '',
-				firstDraw: true // Need this anymore?
+				endDate: ''
 			}
 		});
 
-		var userInput = new UserInput();
-
-		return userInput;
+		return new UserInput();
 	}
 );

@@ -27,8 +27,16 @@
 	});
 
 	// Starting the application
-	require(['app'], function (app) {
+	require([
+		'backbone',
+		'views/app',
+		'router'
+		], function (Backbone, AppView, AppRouter) {
 		// Deal with different devices here?
-		app.init();
+		/* jshint -W031 */
+		new AppRouter();
+		Backbone.history.start();
+
+		new AppView();
 	});
 }());

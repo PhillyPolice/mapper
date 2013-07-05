@@ -53,3 +53,38 @@ html, body {
   background-color: black;
   padding: 10px;
 }
+
+/* line 51, main.scss */
+._100 {
+  color: #D73027;
+}
+
+/* line 55, main.scss */
+._200 {
+  color: #FC8D59;
+}
+
+/* line 59, main.scss */
+._300 {
+  color: #99d594;
+}
+
+/* line 63, main.scss */
+._400 {
+  color: #91BFDB;
+}
+
+/* line 67, main.scss */
+._500 {
+  color: #4575B4;
+}
+
+/* line 71, main.scss */
+._600 {
+  color: #8856A7;
+}
+
+/* line 75, main.scss */
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  background: black;
+}

@@ -1,8 +1,7 @@
 define([
-	'jquery',
 	'underscore',
 	'backbone'
-	], function ($, _, Backbone) {
+	], function (_, Backbone) {
 		var channel = _.extend({}, Backbone.Events);
 
 		return channel;

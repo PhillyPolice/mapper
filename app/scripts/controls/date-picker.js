@@ -1,9 +1,9 @@
+/* jshint -W106 */
 define([
 	'jquery',
 	'../channel',
-	'models/user-input',
-	'zebra'	
-	], function ($, channel, UserInput) {
+	'zebra'
+	], function ($, channel) {
 
 		var formatDate = function(d) {
 			var year = d.getFullYear();
@@ -23,7 +23,7 @@ define([
 		firstOfMonth.setDate(1);
 		firstOfMonth = formatDate(firstOfMonth);
 
-		// TODO: Fix the start and end dates - for some reason isn't working how it should
+		// TODO: Fix the start and end dates - for some reason isn't working how it should		
 		var datePickerStart = $('input.datepicker_start').Zebra_DatePicker({
 			pair: $('input.datepicker_end'),
 			direction: ['2006-01-01', lastDay],
@@ -31,7 +31,6 @@ define([
 		});
 
 		datePickerStart[0].value = firstOfMonth;
-		UserInput.set('startDate', datePickerStart[0].value);
 
 		var datePickerEnd = $('input.datepicker_end').Zebra_DatePicker({
 			direction: ['2006-01-01', lastDay],
@@ -39,7 +38,6 @@ define([
 		});
 
 		datePickerEnd[0].value = lastDay;
-		UserInput.set('endDate', datePickerEnd[0].value);
 
 		$('input.datepicker_start').Zebra_DatePicker({
 			onSelect: function(format, dateStr, dateObj, element) {
@@ -59,6 +57,11 @@ define([
 			onSelect: function(format, dateStr, dateObj, element) {
 				channel.trigger('endDate', dateStr);
 			}
+		});
+
+		channel.on('getDates', function() {
+			channel.trigger('startDate', datePickerStart[0].value);
+			channel.trigger('endDate', datePickerEnd[0].value);
 		});
 	}
 );

@@ -1,13 +1,12 @@
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'leaflet',
 	'../models/user-input',
 	'../models/crime'
-	], function ($, _, Backbone, L, UserInput, Crime) {
-
+	], function (UserInput, Crime) {
 		var Crimes = Backbone.Collection.extend({
+
+			start: '',
+			end: '',
+			geometry: '',
 
 			url: 'http://gis.phila.gov/ArcGIS/rest/services/PhilaGov/Police_Incidents/MapServer/0/query',
 
@@ -15,10 +14,11 @@ define([
 
 			fetch: function() {
 				var options = {};
-				this.whereClause = 'DISPATCH_DATE >= \'' + UserInput.get('startDate') + '\' AND DISPATCH_DATE <= \'' +
-					UserInput.get('endDate') + '\'';
-				options.data = { where : this.whereClause,
-					geometry : UserInput.get('geometry'),
+				this.whereClause = 'DISPATCH_DATE >= \'' + this.start + '\' AND DISPATCH_DATE <= \'' +
+					this.end + '\'';
+				options.data = {
+					where : this.whereClause,
+					geometry : this.geometry,
 					geometryType : 'esriGeometryPolygon',
 					spatialRel : 'esriSpatialRelContains',
 					outFields : 'DISPATCH_DATE,DISPATCH_TIME,TEXT_GENERAL_CODE,HOUR,POINT_X,POINT_Y,UCR_GENERAL,LOCATION_BLOCK',
@@ -37,13 +37,10 @@ define([
 					models.push(data.features[i].attributes);
 				}
 
-				this.trigger('doneParsing');
 				return models;
 			}
 		});
 
-		var crimes = new Crimes();
-
-		return crimes;
+		return new Crimes();
 	}
 );
