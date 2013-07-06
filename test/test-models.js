@@ -64,7 +64,7 @@ define([
         it('CrimeType can have its visibility set to false', function () {
           var crimeType = new CrimeType();
 
-          crimeType.toggleVisibility();
+          crimeType.toggle();
 
           expect(crimeType.get('visibility')).to.not.be.ok;
         });
