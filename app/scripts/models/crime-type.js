@@ -18,14 +18,8 @@ define([
 				_.bindAll(this, 'updateCrimes');
 			},
 
-			toggleVisibility: function () {
-				if (this.get('visibility')) {
-					this.set('visibility', false);
-					this.trigger('hide');
-				} else {
-					this.set('visibility', true);
-					this.trigger('show');
-				}
+			toggle: function () {
+        this.set('visibility', !this.get('visibility'));
 			},
 
 			updateCrimes: function (crimes) {

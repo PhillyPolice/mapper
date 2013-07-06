@@ -116,8 +116,16 @@ define([
 
 			createTypes: function () {
 				$.each(config.types, function(index, type) {
-					var typeModel = new CrimeTypeModel({code: type.code, name: type.name});
+					var typeModel = new CrimeTypeModel({
+            code: type.code, 
+            name: type.name
+          });
 					var typeView = new CrimeTypeView({model: typeModel});
+          //panel.renderResults();
+          channel.on('results:rerendered', function () {
+            $('#results').append(typeView.render().el);
+          });
+          
 				});
 			},
 

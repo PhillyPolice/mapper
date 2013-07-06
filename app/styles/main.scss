@@ -57,21 +57,31 @@ html, body {
 }
 
 ._300 {
-  color: #99d594;
+  color: #FEE090;
 }
 
 ._400 {
-  color: #91BFDB;
+  color: #E0F3F8;
 }
 
 ._500 {
-  color: #4575B4;
+  color: #91BFDB;
 }
 
 ._600 {
-  color: #8856A7;
+  color: #1A9850;
+}
+
+._700 {
+	color: #542788;
 }
 
 .leaflet-popup-content-wrapper, .leaflet-popup-tip {
 	background: black;
+}
+
+.leaflet-market-icon {
+	border-color: black;
+	border-style: solid;
+	border-color: black;
 }

@@ -27,10 +27,12 @@ define([
       render: function () {
         this.$el.html(PanelTemplate);
         DatePicker.init();
+        console.log('Panel rendered');
       },
 
       renderResults: function () {
         this.$el.html(ResultsTemplate);
+        channel.trigger('results:rerendered');
       },
 
       renderCrime: function (model) {
@@ -43,7 +45,7 @@ define([
 
       crimeBack: function () {
         this.renderResults();
-        channel.trigger('results:rerender');
+        channel.trigger('order:rerender');
       }
 
     });
