@@ -7,7 +7,7 @@ html, body {
   height: 100%;
   background-color: black;
   color: white;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: "Open Sans Condensed", sans-serif;
 }
 
 /* line 13, main.scss */
@@ -99,4 +99,57 @@ html, body {
   border-color: black;
   border-style: solid;
   border-color: black;
+}
+
+@-moz-keyframes fadeIn {
+  /* line 90, main.scss */
+  from {
+    opacity: 0;
+  }
+
+  /* line 93, main.scss */
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  /* line 90, main.scss */
+  from {
+    opacity: 0;
+  }
+
+  /* line 93, main.scss */
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  /* line 90, main.scss */
+  from {
+    opacity: 0;
+  }
+
+  /* line 93, main.scss */
+  to {
+    opacity: 1;
+  }
+}
+
+/* line 117, main.scss */
+.fade-in {
+  opacity: 0;
+  -webkit-animation: ease-in fadeIn 1;
+  -moz-animation: ease-in fadeIn 1;
+  animation: ease-in fadeIn 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.6s;
+  -moz-animation-duration: 0.6s;
+  animation-duration: 0.6s;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  animation-delay: 0s;
 }
