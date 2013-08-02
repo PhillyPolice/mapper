@@ -14,16 +14,16 @@ define([
 				marker: false,
 				polygon: {
 					shapeOptions: {
-						color: '#FFBC00',
-						opacity: 0.1
+						color: '#FF0DFF'
 					}
 				}
 			},
-			edit: false
+			edit: false,
+      position: 'topleft'
 		};
 
-		var DrawControl = new L.Control.Draw(options);
+    console.log(L.Control.Draw);
 
-		return DrawControl;
+		return new L.Control.Draw(options);
 	}
 );
