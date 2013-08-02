@@ -27,7 +27,6 @@ define([
       render: function () {
         this.$el.html(PanelTemplate);
         DatePicker.init();
-        console.log('Panel rendered');
       },
 
       renderResults: function () {

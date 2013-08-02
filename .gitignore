@@ -6,3 +6,4 @@ app/scripts/vendor
 app/styles/font/font-awesome/demo.html
 app/styles/font/font-awesome/README.txt
 app/styles/font/font-awesome/config.json
+.vagrant
