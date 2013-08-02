@@ -24,22 +24,27 @@ define([
 		firstOfMonth = formatDate(firstOfMonth);
 
     var DatePicker = {};
+
+    DatePicker.status = false;
+
     DatePicker.init = function () {
+      console.log('In init of date picker');
+      console.log(this);
       // TODO: Fix the start and end dates - for some reason isn't working how it should    
-      var datePickerStart = $('input.datepicker_start').Zebra_DatePicker({
+      this.startDate = $('input.datepicker_start').Zebra_DatePicker({
         pair: $('input.datepicker_end'),
         direction: ['2006-01-01', lastDay],
         start_date: firstOfMonth
       });
 
-      datePickerStart[0].value = firstOfMonth;
+      this.startDate[0].value = firstOfMonth;
 
-      var datePickerEnd = $('input.datepicker_end').Zebra_DatePicker({
+      this.endDate = $('input.datepicker_end').Zebra_DatePicker({
         direction: ['2006-01-01', lastDay],
         start_date: firstOfMonth
       });
 
-      datePickerEnd[0].value = lastDay;
+      this.endDate[0].value = lastDay;
 
       $('input.datepicker_start').Zebra_DatePicker({
         onSelect: function(format, dateStr, dateObj, element) {
@@ -61,11 +66,24 @@ define([
         }
       });
 
+      var self = this;
+
       channel.on('getDates', function() {
-        channel.trigger('startDate', datePickerStart[0].value);
-        channel.trigger('endDate', datePickerEnd[0].value);
+        console.log(self);
+        channel.trigger('startDate', self.startDate[0].value);
+        channel.trigger('endDate', self.endDate[0].value);
       });
+      
+      this.status = true;
     };
+
+    DatePicker.isInitialized = function () {
+        if (this.status) {
+          return true;
+        } else {
+          return false;
+        }
+      };
 
     return DatePicker;
 	}
