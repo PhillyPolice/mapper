@@ -27,6 +27,7 @@ define([
 			},
 
 			render: function () {
+        this.delegateEvents();
 				this.removeLayer();
 				this.layer.clearLayers();
 				this.model.crimes.each(this.addMarker);

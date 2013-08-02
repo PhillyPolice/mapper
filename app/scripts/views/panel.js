@@ -29,8 +29,16 @@ define([
         DatePicker.init();
       },
 
-      renderResults: function () {
-        this.$el.html(ResultsTemplate);
+      renderResults: function (Crimes) {
+        if (Crimes) {
+          var crimeTotal = Crimes.length;
+          var start = Crimes.start;
+          var end = Crimes.end;
+          this.results = _.template(ResultsTemplate, {total: crimeTotal, startDate: start, endDate: end});
+          this.$el.html(this.results);
+        } else {
+          this.$el.html(this.results);
+        }
         channel.trigger('results:rerendered');
       },
 
